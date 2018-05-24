@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CustomViewLibrary</string>
+    <string name="msg_refactory_binding">正在绑定</string>
+</resources>

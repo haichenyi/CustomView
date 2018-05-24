@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="haichenyi.aloe.customview.activity.MainActivity">
+
+    <Button
+        android:id="@+id/btn_wave_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wave_View" />
+
+    <Button
+        android:id="@+id/btn_circle_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="circle_progress" />
+
+    <Button
+        android:id="@+id/btn_verification_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="verification_button" />
+
+    <Button
+        android:id="@+id/btn_verify_code_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="verify_code_view" />
+
+    <Button
+        android:id="@+id/btn_number_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="number_picker" />
+
+</LinearLayout>

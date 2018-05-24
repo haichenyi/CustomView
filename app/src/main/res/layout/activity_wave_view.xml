@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.haichenyi.aloe.widget.WaveView
+        android:id="@+id/wave_view"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:isShowProgress="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:progressColor="@color/colorPrimary"
+        app:progressSize="20"
+        app:waveColor="@color/colorAccent"
+        app:waveDuration="2000"
+        app:waveMaxHeight="100"
+        app:waveWidth="400">
+
+    </com.haichenyi.aloe.widget.WaveView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始" />
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暂停/继续" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

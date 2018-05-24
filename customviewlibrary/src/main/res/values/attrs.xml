@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WaveView">
+        <!--水波纹的颜色-->
+        <attr name="waveColor" format="color"/>
+        <!--水波纹执行一周需要的时间，也就是水波纹的速度-->
+        <attr name="waveDuration" format="integer"/>
+        <!--水波纹的最大高度-->
+        <attr name="waveMaxHeight" format="integer"/>
+        <!--水波纹的宽度-->
+        <attr name="waveWidth" format="integer"/>
+        <!--是否显示进度文字-->
+        <attr name="isShowProgress" format="boolean"/>
+        <!--进度文字的颜色-->
+        <attr name="progressColor" format="color"/>
+        <!--进度文字的大小-->
+        <attr name="progressSize" format="integer"/>
+        <!--进度加载的背景图片-->
+        <attr name="imageBitmap" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="VerificationCodeView">
+        <attr name="box" format="integer" />
+        <attr name="child_h_padding" format="dimension"/>
+        <attr name="child_v_padding" format="dimension"/>
+        <attr name="child_width" format="dimension"/>
+        <attr name="child_height" format="dimension"/>
+        <attr name="padding" format="dimension"/>
+        <attr name="box_bg_focus" format="reference"/>
+        <attr name="box_bg_normal" format="reference"/>
+        <attr name="inputType" format="string"/>
+        <attr name="box_color" format="color"/>
+    </declare-styleable>
+</resources>

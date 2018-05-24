@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="progress_circle">#434A59</color>
+    <color name="red">#F00</color>
+    <color name="blue_light">#6495ED</color>
+</resources>
