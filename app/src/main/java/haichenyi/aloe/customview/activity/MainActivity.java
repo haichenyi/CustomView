@@ -45,5 +45,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, NumberPickActivity.class));
             }
         });
+        findViewById(R.id.btn_list_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ListViewActivity.class));
+            }
+        });
     }
 }
