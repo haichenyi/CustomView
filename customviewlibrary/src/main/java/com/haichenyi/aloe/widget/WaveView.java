@@ -27,53 +27,95 @@ import java.math.BigDecimal;
 
 
 /**
- * Author: 海晨忆
+ * @Author: 海晨忆
  * Date: 2018/3/27
  * Desc: 当你的觉得你的水波纹会有停顿的时候，你可以试着把水波纹的宽度减小一点。
  */
 public class WaveView extends View {
-    /*水波纹路径*/
+    /**
+     * 水波纹路径
+     */
     private Path path;
-    /*水波纹画笔*/
+    /**
+     *水波纹画笔
+     */
     private Paint paintWave;
-    /*进度文字画笔*/
+    /**
+     *进度文字画笔
+     */
     private Paint paintText;
-    /*最后设置模式的时候的画笔*/
+    /**
+     *最后设置模式的时候的画笔
+     */
     private Paint paintCircle;
-    /*水波纹的颜色*/
+    /**
+     *水波纹的颜色
+     */
     private int waveColor;
-    /*水波纹的时间*/
+    /**
+     *水波纹的时间
+     */
     private int waveDuration;
-    /*水波纹的宽度*/
+    /**
+     *水波纹的宽度
+     */
     private int waveWidth;
-    /*水波纹的高度*/
+    /**
+     *水波纹的高度
+     */
     private int waveMaxHeight;
-    /*水波纹动画*/
+    /**
+     *水波纹动画
+     */
     private ValueAnimator animator;
-    /*当前进度*/
+    /**
+     *当前进度
+     */
     private float currentPercent;
-    /*水波纹横着移动给的当前的X轴坐标*/
+    /**
+     *水波纹横着移动给的当前的X轴坐标
+     */
     private int currentStartX;
-    /*水波纹竖着移动的当前的Y轴坐标*/
+    /**
+     *水波纹竖着移动的当前的Y轴坐标
+     */
     private int currentStartY;
-    /*动画是否完层*/
+    /**
+     *动画是否完层
+     */
     private boolean isFinish = false;
-    /*进度文字的颜色*/
+    /**
+     *进度文字的颜色
+     */
     private int progressColor;
-    /*进度文字的大小*/
+    /**
+     *进度文字的大小
+     */
     private int progressSize;
-    /*是否显示进度文字，默认不显示*/
+    /**
+     *是否显示进度文字，默认不显示
+     */
     private boolean isShowProgress = false;
-    /*背景的宽*/
+    /**
+     *背景的宽
+     */
     private int mWidth;
-    /*背景的高*/
+    /**
+     *背景的高
+     */
     private int mHeight;
-    /*源图片，也就是我们的背景图片*/
+    /**
+     *源图片，也就是我们的背景图片
+     */
     private Bitmap mBitmapSrc;
-    /*目标图片，就是一个圆形bitmap*/
+    /**
+     *目标图片，就是一个圆形bitmap
+     */
     private Bitmap mBitmapDst;
     private Canvas mCanvas;
-    /*背景图片的id：默认-1表示没有传背景图片*/
+    /**
+     *背景图片的id：默认-1表示没有传背景图片
+     */
     private int srcBitmapId;
 
     public WaveView(Context context) {
@@ -219,7 +261,7 @@ public class WaveView extends View {
      * 初始化水波纹path
      */
     private void initWavePath() {
-        int currentControlY = 0;
+        int currentControlY;
         if (currentStartY < waveMaxHeight) {
             currentControlY = currentStartY;
         } else {

@@ -160,10 +160,11 @@ public class PickValueView extends LinearLayout implements NumberPicker.OnValueC
             }
             mNpLeft.setMinValue(0);
             mNpLeft.setMaxValue(DATA_SIZE - 1);
-            if (mDefaultLeftValue != null)
+            if (mDefaultLeftValue != null) {
                 updateLeftView(mDefaultLeftValue);
-            else
+            } else {
                 updateLeftView(mShowingLeft[0]);
+            }
         }
         //中间控件
         if (mViewCount == 2 || mViewCount == 3) {
@@ -178,10 +179,11 @@ public class PickValueView extends LinearLayout implements NumberPicker.OnValueC
                 }
                 mNpMiddle.setMinValue(0);
                 mNpMiddle.setMaxValue(DATA_SIZE - 1);
-                if (mDefaultMiddleValue != null)
+                if (mDefaultMiddleValue != null) {
                     updateMiddleView(mDefaultMiddleValue);
-                else
+                } else {
                     updateMiddleView(mShowingMiddle[0]);
+                }
             }
         }
 
@@ -198,10 +200,11 @@ public class PickValueView extends LinearLayout implements NumberPicker.OnValueC
                 }
                 mNpRight.setMinValue(0);
                 mNpRight.setMaxValue(DATA_SIZE - 1);
-                if (mDefaultRightValue != null)
+                if (mDefaultRightValue != null) {
                     updateRightView(mDefaultRightValue);
-                else
+                } else {
                     updateRightView(mShowingRight[0]);
+                }
             }
         }
 

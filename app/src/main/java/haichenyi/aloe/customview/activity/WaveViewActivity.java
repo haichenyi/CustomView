@@ -33,7 +33,7 @@ public class WaveViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wave_view);
         final WaveView waveView = findViewById(R.id.wave_view);
-        waveView.setWaveColor(ContextCompat.getColor(this,R.color.colorPrimaryDark1));
+        waveView.setWaveColor(ContextCompat.getColor(this, R.color.colorPrimaryDark1));
         waveView.setWaveDuration(2000);
         waveView.setWaveWidth(300);
         waveView.setWaveMaxHeight(30);

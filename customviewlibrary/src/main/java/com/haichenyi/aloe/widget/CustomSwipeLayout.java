@@ -25,10 +25,22 @@ import com.haichenyi.aloe.tools.ToastUtils;
  */
 public class CustomSwipeLayout extends SwipeRefreshLayout {
     private View loadMore;
-    private View mTarget; // the target of the gesture
-    private boolean isEnd = false;//是否在底部
-    private boolean isEnableLoadMore = false;//能否上拉加载
-    private boolean isPullUp = false;//是否正在上拉
+    /**
+     * the target of the gesture
+     */
+    private View mTarget;
+    /**
+     * 是否在底部
+     */
+    private boolean isEnd = false;
+    /**
+     * 能否上拉加载
+     */
+    private boolean isEnableLoadMore = false;
+    /**
+     * 是否正在上拉
+     */
+    private boolean isPullUp = false;
     private boolean isLoading = false;
     private LoadMoreInterface moreListener;
 
@@ -78,6 +90,7 @@ public class CustomSwipeLayout extends SwipeRefreshLayout {
             case MotionEvent.ACTION_UP:
                 isPullUpIng(false);
                 break;
+            default:
         }
         return super.dispatchTouchEvent(ev);
     }
@@ -90,7 +103,8 @@ public class CustomSwipeLayout extends SwipeRefreshLayout {
             } else if (mTarget instanceof ListView) {
                 ((ListView) mTarget).addFooterView(loadMore);
                 isLoading = true;
-                setEnabled(false);//禁止下拉刷新
+                //禁止下拉刷新
+                setEnabled(false);
             }
             if (moreListener != null) {
                 moreListener.loadMore();
@@ -226,7 +240,8 @@ public class CustomSwipeLayout extends SwipeRefreshLayout {
             }
         }
         isLoading = false;
-        setEnabled(true);//开启下拉刷新
+        //开启下拉刷新
+        setEnabled(true);
     }
 
     public void setLoadCustomView(View view) {

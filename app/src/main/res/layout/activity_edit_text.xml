@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="卡号"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <com.haichenyi.aloe.widget.BankEditText
+            android:id="@+id/ed_card_no"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:drawableRight="@drawable/icon_close_delete"
+            android:hint="卡号"
+            android:maxLength="23"
+            android:numeric="integer"
+            android:paddingBottom="10dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@null"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="姓名"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <com.haichenyi.aloe.widget.BankEditText
+            android:id="@+id/ed_card_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:drawableRight="@drawable/icon_close_delete"
+            android:hint="持卡人姓名"
+            android:maxLength="14"
+            android:paddingBottom="10dp"
+
+            android:paddingLeft="2dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@null"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

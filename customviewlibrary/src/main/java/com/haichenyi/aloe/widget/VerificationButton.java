@@ -12,9 +12,13 @@ import android.util.AttributeSet;
  */
 
 public class VerificationButton extends AppCompatTextView {
-    //倒计时定时器
+    /**
+     * 倒计时定时器
+     */
     private CountDownTimer countDownTimer;
-    //按钮文本
+    /**
+     * 按钮文本
+     */
     private String txt;
 
     public VerificationButton(Context context) {
@@ -43,7 +47,8 @@ public class VerificationButton extends AppCompatTextView {
      * @param interval 计时间隔
      */
     private void onStart(int time, final int interval) {
-        time = time + 500;//防止显示误差
+        //防止显示误差
+        time = time + 500;
         if (isCountDown()) {
             return;
         }

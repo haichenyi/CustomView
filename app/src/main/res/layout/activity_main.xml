@@ -35,10 +35,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="number_picker" />
+
     <Button
         android:id="@+id/btn_list_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="list_view" />
+
+    <Button
+        android:id="@+id/btn_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="edit_text" />
+
+    <Button
+        android:id="@+id/btn_auto_view_pager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="auto_view_pager" />
 
 </LinearLayout>

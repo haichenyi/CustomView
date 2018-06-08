@@ -8,5 +8,8 @@ package com.haichenyi.aloe.interfaces;
  * @Version: V1.0
  */
 public interface LoadMoreInterface {
+    /**
+     * 加载更多
+     */
     void loadMore();
 }

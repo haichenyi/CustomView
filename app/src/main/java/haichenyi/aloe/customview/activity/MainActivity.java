@@ -2,12 +2,19 @@ package haichenyi.aloe.customview.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import haichenyi.aloe.customview.R;
 
+/**
+ * @Title:
+ * @Description:
+ * @Author: wz
+ * @Date: 2018/6/8
+ * @Version: V1.0
+ */
 public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("CheckResult")
@@ -49,6 +56,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ListViewActivity.class));
+            }
+        });
+        findViewById(R.id.btn_edit_text).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AddEditTextActivity.class));
+            }
+        });
+        findViewById(R.id.btn_auto_view_pager).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AutoViewPagerActivity.class));
             }
         });
     }

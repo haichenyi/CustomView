@@ -7,6 +7,9 @@ package com.haichenyi.aloe.interfaces;
  * @desc 圆形进度自定义view的动画监听
  */
 public interface AnimationInterface {
-  void AnimationEnd();
+    /**
+     * 动画结束回调
+     */
+    void animationEnd();
 }
                                                   

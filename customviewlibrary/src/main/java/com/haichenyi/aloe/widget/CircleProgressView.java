@@ -3,6 +3,7 @@ package com.haichenyi.aloe.widget;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
@@ -36,36 +37,83 @@ public class CircleProgressView extends View {
     private Paint mPaintCircle, mPainCenterText, mPainBottomText, mPaintProgress, mPaintImgSuccessFailed,
             mPaintSmallCircle, mPaintShadow;
     private float radius = ToolsUtils.digitValue(50, TypedValue.COMPLEX_UNIT_DIP);
-    private float mPaintImgSuccessFailedWidth = ToolsUtils.digitValue(3, TypedValue.COMPLEX_UNIT_DIP);//画勾和X的画笔宽度
-    private float paintCircleWidth = ToolsUtils.digitValue(7, TypedValue.COMPLEX_UNIT_DIP), //圆画笔的宽度
+    /**
+     * 画勾和X的画笔宽度
+     */
+    private float mPaintImgSuccessFailedWidth = ToolsUtils.digitValue(3, TypedValue.COMPLEX_UNIT_DIP);
+    /**
+     * 圆画笔的宽度
+     */
+    private float paintCircleWidth = ToolsUtils.digitValue(7, TypedValue.COMPLEX_UNIT_DIP),
             radiusPointShadow = paintCircleWidth, radiusPointCurrentShadow = radiusPointShadow;
-    private float textSize = ToolsUtils.digitValue(20, TypedValue.COMPLEX_UNIT_DIP);//字的大小
-    // 结果文字上方外边距.
+    /**
+     * 字的大小
+     */
+    private float textSize = ToolsUtils.digitValue(20, TypedValue.COMPLEX_UNIT_DIP);
+    /**
+     * 结果文字上方外边距
+     */
     private int resultTextMarginTop = (int) ToolsUtils.digitValue(20, TypedValue.COMPLEX_UNIT_DIP);
-    private float pathTextWidth = 3f;//字画笔的宽度
+    /**
+     * 字画笔的宽度
+     */
+    private float pathTextWidth = 3f;
     private Path pathCircle, pathProgress, pathDstProgress, pathSuccess, pathDstSuccess, pathFailed,
             pathDstFailed;
-    private float mCurrent = 0;//当前动画进度
+    /**
+     * 当前动画进度
+     */
+    private float mCurrent = 0;
     private String textContentCenter = (int) (mCurrent * 100) + "%";
     private String textContentBottom = "";
-    private static final int startColor = 0xFF04EAF6; // 圆环渐变 开始颜色.
-    private static final int endColor = 0xFF6A65FE; // 圆环渐变 结束颜色
-    public static final int DRAWPROGRESS = 1;//进度
-    public static final int SUCCESS = 2;//成功
-    public static final int FAILED = 3;//失败
+    /**
+     * 圆环渐变 开始颜色.
+     */
+    private static final int startColor = 0xFF04EAF6;
+    /**
+     * 圆环渐变 结束颜色
+     */
+    private static final int endColor = 0xFF6A65FE;
+    /**
+     * 进度
+     */
+    public static final int DRAWPROGRESS = 1;
+    /**
+     * 成功
+     */
+    public static final int SUCCESS = 2;
+    /**
+     * 失败
+     */
+    public static final int FAILED = 3;
     private static int DRAW_TYPE = DRAWPROGRESS;
     private PathMeasure pathMeasureProgress, pathMeasureSuccess, pathMeasureFailed;
     private float currentDistance;
     private ValueAnimator successAnim, failedAnimLeft, failedAnimRight, shadowAnim;
     private float length;
-    private long animatorTime = 3000;//动画时长
-    private long shadowAnimatorTime = 500;//阴影动画时间
-    private float currentProgress = 0;//当前进度
+    /**
+     * 动画时长
+     */
+    private long animatorTime = 3000;
+    /**
+     * 阴影动画时间
+     */
+    private long shadowAnimatorTime = 500;
+    /**
+     * 当前进度
+     */
+    private float currentProgress = 0;
     private List<ValueAnimator> animatorList = new ArrayList<>();
     private AnimationInterface animationInterface;
     private float[] pointXY = new float[2];
-    private float pointX, pointY; // 小白球点坐标
-    private String mContent;//文本内容
+    /**
+     * 小白球点坐标
+     */
+    private float pointX, pointY;
+    /**
+     * 文本内容
+     */
+    private String mContent;
 
     public CircleProgressView(Context context) {
         super(context);
@@ -219,6 +267,7 @@ public class CircleProgressView extends View {
         radius = Math.min(w, h) / 4;
     }
 
+    @SuppressLint("DrawAllocation")
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -226,40 +275,55 @@ public class CircleProgressView extends View {
         //画布设置抗锯齿
         canvas.translate(mWidth / 2, mHeight / 2);
         switch (DRAW_TYPE) {
-            case DRAWPROGRESS://进度
-                canvas.drawPath(pathCircle, mPaintCircle);//画背景圆
-                canvas.drawText(textContentCenter, 0, textSize / 2, mPainCenterText);//画进度文字
+            //进度
+            case DRAWPROGRESS:
+                //画背景圆
+                canvas.drawPath(pathCircle, mPaintCircle);
+                //画进度文字
+                canvas.drawText(textContentCenter, 0, textSize / 2, mPainCenterText);
                 currentDistance = length * mCurrent;
                 pathMeasureProgress.getSegment(0, currentDistance, pathDstProgress, true);
                 pathMeasureProgress.getPosTan(currentDistance, pointXY, null);
                 pointX = pointXY[0];
                 pointY = pointXY[1];
+                //画bottom文字
                 canvas.drawText(mContent, 0, radius + paintCircleWidth + textSize / 2 + resultTextMarginTop,
-                        mPainBottomText);//画bottom文字
-                canvas.rotate(-90);//画布旋转90度，从顶部开始画外圈的圆
-                canvas.drawPath(pathDstProgress, mPaintProgress);//画当前进度圆
+                        mPainBottomText);
+                //画布旋转90度，从顶部开始画外圈的圆
+                canvas.rotate(-90);
+                //画当前进度圆
+                canvas.drawPath(pathDstProgress, mPaintProgress);
                 canvas.save();
                 canvas.translate(pointX, pointY);
                 canvas.drawCircle(0, 0, paintCircleWidth / 2, mPaintSmallCircle);
                 canvas.drawCircle(0, 0, radiusPointCurrentShadow, mPaintShadow);
                 canvas.restore();
                 break;
-            case SUCCESS://成功
-                canvas.drawPath(pathCircle, mPaintProgress);//画背景圆
+            //成功
+            case SUCCESS:
+                //画背景圆
+                canvas.drawPath(pathCircle, mPaintProgress);
                 currentDistance = length * mCurrent;
                 pathMeasureSuccess.getSegment(0, currentDistance, pathDstSuccess, true);
-                canvas.drawPath(pathDstSuccess, mPaintImgSuccessFailed);//画成功勾path
+                //画成功勾path
+                canvas.drawPath(pathDstSuccess, mPaintImgSuccessFailed);
+                //画bottom文字
                 canvas.drawText(textContentBottom, 0, radius + paintCircleWidth + textSize / 2 +
-                        resultTextMarginTop, mPainBottomText);//画bottom文字
+                        resultTextMarginTop, mPainBottomText);
                 break;
-            case FAILED://失败
-                canvas.drawPath(pathCircle, mPaintProgress);//画背景圆
+            //失败
+            case FAILED:
+                //画背景圆
+                canvas.drawPath(pathCircle, mPaintProgress);
                 currentDistance = length * mCurrent;
                 pathMeasureFailed.getSegment(0, currentDistance, pathDstFailed, true);
-                canvas.drawPath(pathDstFailed, mPaintImgSuccessFailed);//画失败Xpath
+                //画失败Xpath
+                canvas.drawPath(pathDstFailed, mPaintImgSuccessFailed);
+                //画bottom文字
                 canvas.drawText(textContentBottom, 0, radius + paintCircleWidth + textSize / 2 +
-                        resultTextMarginTop, mPainBottomText);//画bottom文字
+                        resultTextMarginTop, mPainBottomText);
                 break;
+            default:
         }
     }
 
@@ -361,7 +425,7 @@ public class CircleProgressView extends View {
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 if (null != animationInterface) {
-                    animationInterface.AnimationEnd();
+                    animationInterface.animationEnd();
                 }
             }
         });
@@ -402,7 +466,8 @@ public class CircleProgressView extends View {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 mCurrent = (float) animation.getAnimatedValue();
-                if (1 == mCurrent) {  //跳转到下一个path，根据path的添加顺序
+                //跳转到下一个path，根据path的添加顺序
+                if (1 == mCurrent) {
                     currentDistance = 0;
                     pathMeasureFailed.nextContour();
                 }
@@ -436,7 +501,7 @@ public class CircleProgressView extends View {
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 if (null != animationInterface) {
-                    animationInterface.AnimationEnd();
+                    animationInterface.animationEnd();
                 }
             }
         });
